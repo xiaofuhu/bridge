@@ -9,9 +9,9 @@ ENTITY bridge_fake_enc IS
         data_out        : OUT   STD_LOGIC;          -- data to roboteq
         data_in         : IN    STD_LOGIC           -- data from buffer
     );
-END bridge_top;
+END bridge_fake_enc;
 
-ARCHITECTURE rtl OF bridge_top IS
+ARCHITECTURE rtl OF bridge_fake_enc IS
 
     TYPE edge_type IS ARRAY (0 TO 1) OF STD_LOGIC;
     SIGNAL      edge     : edge_type;                   -- edge detector for protocal clock

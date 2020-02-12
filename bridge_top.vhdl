@@ -26,8 +26,11 @@ ARCHITECTURE rtl OF bridge_top IS
 
     SIGNAL      data_from_buffer        : STD_LOGIC;
     SIGNAL      data_to_buffer          : STD_LOGIC;
+    SIGNAL      clk_out_s               : STD_LOGIC;
 
 BEGIN
+
+    clk_out <= clk_out_s;
 
     fake_enc : ENTITY work.bridge_fake_enc
         PORT MAP (
@@ -38,12 +41,12 @@ BEGIN
             data_in     => data_from_buffer
         );
 
-    buffer : ENTITY work.bridge_buffer
+    buff : ENTITY work.bridge_buffer
         PORT MAP (
             clk         => clk,
             rst         => rst,
             clk_in      => clk_in,
-            clk_out     => clk_out,             -- NOTE: this is an input (signal from fake rob)
+            clk_out     => clk_out_s,             -- NOTE: this is an input (signal from fake rob)
             data_out    => data_from_buffer,
             data_in     => data_to_buffer
         );
@@ -52,7 +55,8 @@ BEGIN
         PORT MAP (
             clk         => clk,
             rst         => rst,
-            clk_out     => clk_out,
+            clk_in      => clk_in,
+            clk_out     => clk_out_s,
             data_out    => data_to_buffer,
             data_in     => data_in
         );
