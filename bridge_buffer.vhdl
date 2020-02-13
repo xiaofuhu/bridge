@@ -27,6 +27,11 @@ ARCHITECTURE rtl OF bridge_buffer IS
     SUBTYPE index_type IS INTEGER RANGE ram_type'range;
     SIGNAL      wr_i        : index_type;               -- writer index
     SIGNAL      rd_i        : index_type;               -- reader index
+    
+    SIGNAL      h_period        : INTEGER;
+    SIGNAL      tmp_h_period    : INTEGER;
+    SIGNAL      count           : INTEGER RANGE 0 TO INTEGER'HIGH;
+    SIGNAL      realign         : STD_LOGIC := '0';
 
 BEGIN
 
@@ -46,15 +51,54 @@ BEGIN
             END IF;
         END IF;
     END PROCESS;
+    
+    PROC_H_PERIOD :
+    PROCESS(clk) BEGIN
+        IF RISING_EDGE(clk) THEN
+            IF rst = '1' THEN
+                h_period <= 0;
+                tmp_h_period <= 0;
+            ELSE
+                IF (edge_wr(0) = '0' AND edge_wr(1) = '1') OR (edge_wr(0) = '1' AND edge_wr(1) = '0') THEN
+                    h_period <= tmp_h_period;
+                    tmp_h_period <= 0;
+                ELSE
+                    tmp_h_period <= tmp_h_period + 1;
+                END IF;
+            END IF;
+        END IF;
+    END PROCESS;
+    
+    PROC_ADJUST :
+    PROCESS(clk) BEGIN
+        IF RISING_EDGE(clk) THEN
+            IF rst = '1' THEN
+                count <= 0;
+            ELSE
+                IF (edge_wr(0) = '0' AND edge_wr(1) = '1') OR (edge_wr(0) = '1' AND edge_wr(1) = '0') THEN
+                    count <= 0;
+                ELSIF count < 4 * h_period THEN
+                    count <= count + 1;
+                ELSE
+                    count <= count;
+                END IF;
+                IF count > 2 * h_period AND count < 3 * h_period THEN
+                    realign <= '1';
+                ELSE
+                    realign <= '0';
+                END IF;
+            END IF;
+        END IF;
+    END PROCESS;
 
     PROC_WRITE :
     PROCESS(clk) BEGIN
         IF RISING_EDGE(clk) THEN
-            IF rst = '1' THEN
+            IF rst = '1' OR realign = '1' THEN
                 wr_i <= 0;
             ELSIF edge_wr(0) = '0' AND edge_wr(1) = '1' THEN
                 ram(wr_i) <= data_in;                   -- write ram
-                IF wr_i >= ram_len - 1 THEN
+                IF wr_i >= ram_len THEN
                     wr_i <= 0;
                 ELSE
                     wr_i <= wr_i + 1;
@@ -66,11 +110,11 @@ BEGIN
     PROC_READ :
     PROCESS(clk) BEGIN
         IF RISING_EDGE(clk) THEN
-            IF rst = '1' THEN
+            IF rst = '1' OR realign = '1' THEN
                 rd_i <= 1;
             ELSIF edge_rd(0) = '0' AND edge_rd(1) = '1' THEN
                 data_out <= ram(rd_i);
-                IF rd_i >= ram_len - 1 THEN
+                IF rd_i >= ram_len THEN
                     rd_i <= 1;                        -- read starts at index 1
                 ELSE
                     rd_i <= rd_i + 1;

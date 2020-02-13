@@ -1,0 +1,18 @@
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 7cfeeb501efe49fe9ff9f40469ca71ba --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot bridge_tb_behav xil_defaultlib.bridge_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling architecture rtl of entity xil_defaultlib.bridge_fake_enc [bridge_fake_enc_default]
+Compiling architecture rtl of entity xil_defaultlib.bridge_buffer [bridge_buffer_default]
+Compiling architecture rtl of entity xil_defaultlib.bridge_fake_rob [bridge_fake_rob_default]
+Compiling architecture rtl of entity xil_defaultlib.bridge_top [bridge_top_default]
+Compiling architecture behav of entity xil_defaultlib.bridge_tb
+Built simulation snapshot bridge_tb_behav

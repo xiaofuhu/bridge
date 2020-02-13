@@ -23,10 +23,9 @@ ARCHITECTURE rtl OF bridge_fake_rob IS
 
     SIGNAL      h_period        : INTEGER;
     SIGNAL      tmp_h_period    : INTEGER;
-    SIGNAL      count           : INTEGER;
-    SIGNAL      ticks           : INTEGER;
+    SIGNAL      count           : INTEGER RANGE 0 TO INTEGER'HIGH;
+    SIGNAL      ticks           : INTEGER RANGE 0 TO 17;
     SIGNAL      clk_s           : STD_LOGIC;
-    SIGNAL      clk_i           : STD_LOGIC;
     SIGNAL      rst_data        : STD_LOGIC;
 
 BEGIN
@@ -57,56 +56,51 @@ BEGIN
                 h_period <= 0;
                 tmp_h_period <= 0;
             ELSE
-                IF edge(0) = '0' AND edge(1) = '1' THEN
-                    tmp_h_period <= 0;
-                ELSIF edge(0) = '1' AND edge(1) = '0' THEN
+                IF (edge(0) = '0' AND edge(1) = '1') OR (edge(0) = '1' AND edge(1) = '0') THEN
                     h_period <= tmp_h_period;
+                    tmp_h_period <= 0;
                 ELSE
                     tmp_h_period <= tmp_h_period + 1;
                 END IF;
             END IF;
         END IF;
     END PROCESS;
-
+    
     PROC_CLK_GEN :
     PROCESS(clk) BEGIN
         IF RISING_EDGE(clk) THEN
             IF rst = '1' THEN
                 clk_s <= '1';
-                clk_i <= '1';
                 count <= 0;
                 ticks <= 0;
                 rst_data <= '0';
             ELSE
-                IF edge_gen(0) = '1' AND edge_gen(1) = '0' THEN
-                    IF ticks < num_clk THEN
-                        ticks <= ticks + 1;
+                IF ticks < num_clk - 1 THEN
+                    IF (edge(0) = '1' AND edge(1) = '0') OR (edge(1) = '1' AND edge(0) = '0') THEN
+                        clk_s <= clk_in;
+                        IF edge(0) = '1' AND edge(1) = '0' THEN
+                            ticks <= ticks + 1;
+                        ELSE
+                            ticks <= ticks;
+                        END IF;
+                    END IF;
+                ELSE
+                    IF count < h_period THEN
+                        clk_s <= '1';
+                        count <= count + 1;
+                    ELSIF count <= h_period * 2 THEN
+                        clk_s <= '0';
+                        count <= count + 1;
                     ELSE
+                        clk_s <= '1';
+                        count <= 0;
                         ticks <= 0;
                     END IF;
-                END IF;
-
-                IF ticks >= num_clk - 1 THEN
-                    IF count < h_period THEN
-                        clk_i <= '1';
-                        count <= count + 1;
-                    ELSIF count < h_period + h_period THEN
-                        clk_i <= '0';
-                        count <= count + 1;
-                    ELSE
-                        clk_i <= '1';
-                        count <= 0;
-                    END IF;
-                END IF;
-
-                IF ticks < num_clk - 1 THEN
-                    clk_s <= clk_in;
-                ELSE
-                    clk_s <= clk_i;
                 END IF;
             END IF;
         END IF;
     END PROCESS;
+
 
     PROC_DATA :
     PROCESS(clk) BEGIN

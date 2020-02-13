@@ -37,37 +37,51 @@ BEGIN
             data_out => data_out
         );
     
-    PROCESS
-        TYPE arr IS ARRAY (0 TO 13) OF STD_LOGIC;
-        CONSTANT input : arr :=
-            ('1','0','1','0','1','0','1','0','1','0','1','0','1','0');
-    
-    BEGIN
+    PROCESS BEGIN
         rst <= '1';
-        wait for 20 ns;
+        wait for 200 ns;
         rst <= '0';
-        FOR i IN 1 TO 200 LOOP
+        FOR i IN 1 TO 2000 LOOP
             clk <= NOT clk;
-            wait for 5 ns;
+            wait for 2 ns;
             clk <= NOT clk;
-            wait for 5 ns;
+            wait for 2 ns;
         END LOOP;
         WAIT;
     END PROCESS;
 
-    PROCESS BEGIN
-        rst <= '1';
-        wait for 20 ns;
-        rst <= '0';
-        FOR i IN 0 TO 5 LOOP
+    PROCESS
+        TYPE arr IS ARRAY (0 TO 15) OF STD_LOGIC;
+        CONSTANT input : arr :=
+            ('0','1','1','1','1','0','0','1','0','0','0','1','0','0','1','1');
+    BEGIN
+        wait for 200 ns;
+        FOR i IN 0 TO 4 LOOP
             FOR j in 0 TO 15 LOOP
                 clk_in <= NOT clk_in;
                 wait for 20 ns;
+                data_in <= input(j);
                 clk_in <= NOT clk_in;
                 wait for 20 ns;
             END LOOP;
-            wait for 300 ns;
+            wait for 600 ns;
         END LOOP;
         WAIT;
     END PROCESS;
+    
+--    PROCESS 
+--        TYPE arr IS ARRAY (0 TO 15) OF STD_LOGIC;
+--        CONSTANT input : arr :=
+--            ('1','1','1','1','1','0','0','1','0','0','0','1','0','1');
+--    BEGIN
+--        wait for 200 ns;
+--        FOR i IN 0 TO 4 LOOP
+--            FOR j in input'RANGE LOOP
+--                data_in <= input(j);
+--                wait for 40 ns;
+--            END LOOP;
+--            wait for 600 ns;
+--        END LOOP;
+--        WAIT;
+--    END PROCESS;
 END BEHAV;
