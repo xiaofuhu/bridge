@@ -98,6 +98,7 @@ BEGIN
                 wr_i <= 0;
             ELSIF edge_wr(0) = '0' AND edge_wr(1) = '1' THEN
                 ram(wr_i) <= data_in;                   -- write ram
+            ELSIF edge_wr(1) = '0' AND edge_wr(0) = '1' THEN
                 IF wr_i >= ram_len THEN
                     wr_i <= 0;
                 ELSE
@@ -112,6 +113,7 @@ BEGIN
         IF RISING_EDGE(clk) THEN
             IF rst = '1' OR realign = '1' THEN
                 rd_i <= 1;
+                data_out <= '1';
             ELSIF edge_rd(0) = '0' AND edge_rd(1) = '1' THEN
                 data_out <= ram(rd_i);
                 IF rd_i >= ram_len THEN

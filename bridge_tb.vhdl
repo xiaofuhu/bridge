@@ -41,11 +41,11 @@ BEGIN
         rst <= '1';
         wait for 200 ns;
         rst <= '0';
-        FOR i IN 1 TO 2000 LOOP
+        FOR i IN 1 TO 4000 LOOP
             clk <= NOT clk;
-            wait for 2 ns;
+            wait for 1 ns;
             clk <= NOT clk;
-            wait for 2 ns;
+            wait for 1 ns;
         END LOOP;
         WAIT;
     END PROCESS;
@@ -53,7 +53,7 @@ BEGIN
     PROCESS
         TYPE arr IS ARRAY (0 TO 15) OF STD_LOGIC;
         CONSTANT input : arr :=
-            ('0','1','1','1','1','0','0','1','0','0','0','1','0','0','1','1');
+            ('0','1','1','1','1','0','0','1','0','0','0','1','0','1','0','1');
     BEGIN
         wait for 200 ns;
         FOR i IN 0 TO 4 LOOP

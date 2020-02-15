@@ -1,5 +1,5 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/fuhu/Desktop/bridge/bridge_fake_enc.vhdl" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'bridge_fake_enc'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/fuhu/Desktop/bridge/bridge_buffer.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'bridge_buffer'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/fuhu/Desktop/bridge/bridge_top.vhdl" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'bridge_top'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/fuhu/Desktop/bridge/bridge_tb.vhdl" into library xil_defaultlib

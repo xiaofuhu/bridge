@@ -18,7 +18,8 @@ ENTITY bridge_top IS
         clk_in          : IN    STD_LOGIC;          -- protocal clock
         data_out        : OUT   STD_LOGIC;          -- data to roboteq
         clk_out         : OUT   STD_LOGIC;          -- new clock
-        data_in         : IN    STD_LOGIC           -- data from encoder
+        data_in         : IN    STD_LOGIC;          -- data from encoder
+        debug           : OUT   STD_LOGIC
     );
 END bridge_top;
 
@@ -27,6 +28,8 @@ ARCHITECTURE rtl OF bridge_top IS
     SIGNAL      data_from_buffer        : STD_LOGIC;
     SIGNAL      data_to_buffer          : STD_LOGIC;
     SIGNAL      clk_out_s               : STD_LOGIC;
+    
+    SIGNAL      cnt : INTEGER RANGE 0 TO INTEGER'HIGH;
 
 BEGIN
 
@@ -60,5 +63,22 @@ BEGIN
             data_out    => data_to_buffer,
             data_in     => data_in
         );
+        
+    PROC_DEBUG :
+    PROCESS(clk) BEGIN
+        IF RISING_EDGE(clk) THEN
+            IF cnt < 1000 THEN
+                cnt <= cnt + 1;
+            ELSE
+                cnt <= 0;
+            END IF;
+            IF cnt < 500 THEN
+                debug <= '1';
+            ELSE
+                debug <= '0';
+            END IF;
+        END IF;
+    END PROCESS;
+    
     
 END rtl;
