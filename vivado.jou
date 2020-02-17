@@ -2,141 +2,48 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Fri Feb 14 18:22:19 2020
-# Process ID: 4472
+# Start of session at: Mon Feb 17 18:39:21 2020
+# Process ID: 6860
 # Current directory: C:/Users/fuhu/Desktop/bridge
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15336 C:\Users\fuhu\Desktop\bridge\bridge.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9068 C:\Users\fuhu\Desktop\bridge\bridge.xpr
 # Log file: C:/Users/fuhu/Desktop/bridge/vivado.log
 # Journal file: C:/Users/fuhu/Desktop/bridge\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/fuhu/Desktop/bridge/bridge.xpr
 update_compile_order -fileset sources_1
-file mkdir C:/Users/fuhu/Desktop/bridge/bridge.srcs/constrs_1
-file mkdir C:/Users/fuhu/Desktop/bridge/bridge.srcs/constrs_1/new
-close [ open C:/Users/fuhu/Desktop/bridge/bridge.srcs/constrs_1/new/constr.xdc w ]
-add_files -fileset constrs_1 C:/Users/fuhu/Desktop/bridge/bridge.srcs/constrs_1/new/constr.xdc
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-wait_on_run impl_1
-open_hw_manager
-connect_hw_server -allow_non_jtag
-open_hw_target
-set_property PROGRAM.FILE {C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bit} [get_hw_devices xc7a15t_0]
-current_hw_device [get_hw_devices xc7a15t_0]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a15t_0] 0]
-refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0]
-create_hw_cfgmem -hw_device [lindex [get_hw_devices xc7a15t_0] 0] [lindex [get_cfgmem_parts {28f00am29ew-bpi-x16}] 0]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0]
-set_property CFGMEM_PART {n25q32-3.3v-spi-x1_x2_x4} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-reset_run impl_1 -prev_step 
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-wait_on_run impl_1
-set_property STEPS.WRITE_BITSTREAM.ARGS.BIN_FILE true [get_runs impl_1]
-reset_run impl_1 -prev_step 
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-wait_on_run impl_1
-open_run impl_1
-set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.FILES [list "C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-startgroup 
-create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a15t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a15t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a15t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0];
-program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-endgroup
-set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.FILES [list "C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-startgroup 
-create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a15t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a15t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a15t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0];
-program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-endgroup
-set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.FILES [list "C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-startgroup 
-create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a15t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a15t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a15t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0];
-program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-endgroup
-set_property PROBES.FILE {} [get_hw_devices xc7a15t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a15t_0]
-set_property PROGRAM.FILE {C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bit} [get_hw_devices xc7a15t_0]
-program_hw_devices [get_hw_devices xc7a15t_0]
-refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0]
-open_hw_target {localhost:3121/xilinx_tcf/Digilent/210328AB7DC1A}
-set_property PROGRAM.FILE {C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bit} [get_hw_devices xc7a15t_0_1]
-current_hw_device [get_hw_devices xc7a15t_0_1]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a15t_0_1] 0]
-create_hw_cfgmem -hw_device [lindex [get_hw_devices xc7a15t_0_1] 0] [lindex [get_cfgmem_parts {n25q32-3.3v-spi-x1_x2_x4}] 0]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-refresh_hw_device [lindex [get_hw_devices xc7a15t_0_1] 0]
-set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.FILES [list "C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0_1] 0]]
-refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0]
-reset_run impl_1 -prev_step 
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-wait_on_run impl_1
-set_property target_constrs_file C:/Users/fuhu/Desktop/bridge/bridge.srcs/constrs_1/new/constr.xdc [current_fileset -constrset]
-reset_run impl_1
-launch_runs impl_1 -jobs 4
-wait_on_run impl_1
-refresh_design
-startgroup
-set_property BITSTREAM.CONFIG.CONFIGRATE 33 [get_designs impl_1]
-endgroup
-save_constraints
-reset_run impl_1
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-wait_on_run impl_1
-set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.FILES [list "C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-startgroup 
-create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a15t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a15t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a15t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0];
-program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-endgroup
-close_hw_manager
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
+source bridge_tb.tcl
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
+source bridge_tb.tcl
+run all
+restart
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
+source bridge_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
+source bridge_tb.tcl
+run all
+restart
+run all
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
+source bridge_tb.tcl
+run all
+restart
+run all
+save_wave_config {C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg}
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 4
 wait_on_run impl_1
@@ -147,169 +54,6 @@ set_property PROGRAM.FILE {C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridg
 current_hw_device [get_hw_devices xc7a15t_0]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a15t_0] 0]
 create_hw_cfgmem -hw_device [get_hw_devices xc7a15t_0] -mem_dev [lindex [get_cfgmem_parts {n25q32-3.3v-spi-x1_x2_x4}] 0]
-set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.FILES [list "C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-startgroup 
-create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a15t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a15t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a15t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0];
-program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-endgroup
-close_project
-open_project C:/Users/fuhu/Desktop/bridge/bridge.xpr
-update_compile_order -fileset sources_1
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-current_wave_config {bridge_tb_behav.wcfg}
-add_wave {{/bridge_tb/b0/buff/edge_wr}} {{/bridge_tb/b0/buff/edge_rd}} 
-restart
-run all
-save_wave_config {C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg}
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-run all
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-current_wave_config {bridge_tb_behav.wcfg}
-add_wave {{/bridge_tb/b0/buff/clk_out}} 
-restart
-run all
-save_wave_config {C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg}
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-run all
-run all
-run all
-run all
-run all
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/fuhu/Desktop/bridge/bridge_tb_behav.wcfg
-source bridge_tb.tcl
-run all
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-wait_on_run impl_1
-open_hw_manager
-connect_hw_server -allow_non_jtag
-open_hw_target
-set_property PROGRAM.FILE {C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bit} [get_hw_devices xc7a15t_0]
-current_hw_device [get_hw_devices xc7a15t_0]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a15t_0] 0]
-create_hw_cfgmem -hw_device [get_hw_devices xc7a15t_0] -mem_dev [lindex [get_cfgmem_parts {n25q32-3.3v-spi-x1_x2_x4}] 0]
-set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.FILES [list "C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-startgroup 
-create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a15t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a15t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a15t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0];
-program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-endgroup
-open_run impl_1
-startgroup
-set_property BITSTREAM.CONFIG.CONFIGRATE 33 [get_designs impl_1]
-endgroup
-set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.FILES [list "C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-startgroup 
-create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a15t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a15t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a15t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a15t_0] 0];
-program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
-endgroup
-save_constraints
-reset_run impl_1
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-wait_on_run impl_1
 set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
 set_property PROGRAM.FILES [list "C:/Users/fuhu/Desktop/bridge/bridge.runs/impl_1/bridge_top.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]
 set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a15t_0] 0]]

@@ -92,7 +92,7 @@ set_property -dict {PACKAGE_PIN K3 IOSTANDARD LVCMOS33} [get_ports data_out]
 
 set_property -dict {PACKAGE_PIN C15 IOSTANDARD LVCMOS33} [get_ports debug]
 
-#set_property -dict { PACKAGE_PIN H1    IOSTANDARD LVCMOS33 } [get_ports { pio6  }]; #IO_L3P_T0_DQS_AD5P_35 Sch=pio[06]
+set_property -dict { PACKAGE_PIN H1    IOSTANDARD LVCMOS33 } [get_ports { data_out_inv  }]; #IO_L3P_T0_DQS_AD5P_35 Sch=pio[06]
 
 #set_property -dict { PACKAGE_PIN A15   IOSTANDARD LVCMOS33 } [get_ports { pio7  }]; #IO_L6N_T0_VREF_16 Sch=pio[07]
 

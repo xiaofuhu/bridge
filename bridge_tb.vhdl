@@ -11,6 +11,7 @@ ARCHITECTURE BEHAV OF bridge_tb IS
             rst             : IN    STD_LOGIC;          -- fpga reset
             clk_in          : IN    STD_LOGIC;          -- protocal clock
             data_out        : OUT   STD_LOGIC;          -- data to roboteq
+            data_out_inv    : OUT   STD_LOGIC;          -- data to roboteq
             clk_out         : OUT   STD_LOGIC;          -- new clock
             data_in         : IN    STD_LOGIC           -- data from encoder
         );
@@ -25,6 +26,7 @@ ARCHITECTURE BEHAV OF bridge_tb IS
     SIGNAL clk_out  : STD_LOGIC;
     SIGNAL data_in  : STD_LOGIC;
     SIGNAL data_out : STD_LOGIC;
+    SIGNAL data_out_inv : STD_LOGIC;
 
 BEGIN
     b0 : bridge_top
@@ -34,7 +36,8 @@ BEGIN
             clk_in => clk_in,
             clk_out => clk_out,
             data_in => data_in,
-            data_out => data_out
+            data_out => data_out,
+            data_out_inv => data_out_inv
         );
     
     PROCESS BEGIN

@@ -17,6 +17,7 @@ ENTITY bridge_top IS
         rst             : IN    STD_LOGIC;          -- fpga reset
         clk_in          : IN    STD_LOGIC;          -- protocal clock
         data_out        : OUT   STD_LOGIC;          -- data to roboteq
+        data_out_inv    : OUT   STD_LOGIC;          -- data inverted to roboteq
         clk_out         : OUT   STD_LOGIC;          -- new clock
         data_in         : IN    STD_LOGIC;          -- data from encoder
         debug           : OUT   STD_LOGIC
@@ -28,19 +29,22 @@ ARCHITECTURE rtl OF bridge_top IS
     SIGNAL      data_from_buffer        : STD_LOGIC;
     SIGNAL      data_to_buffer          : STD_LOGIC;
     SIGNAL      clk_out_s               : STD_LOGIC;
+    SIGNAL      data_out_s              : STD_LOGIC;
     
     SIGNAL      cnt : INTEGER RANGE 0 TO INTEGER'HIGH;
 
 BEGIN
 
     clk_out <= clk_out_s;
+    data_out <= data_out_s;
+    data_out_inv <= NOT data_out_s;
 
     fake_enc : ENTITY work.bridge_fake_enc
         PORT MAP (
             clk         => clk,
             rst         => rst,
             clk_in      => clk_in,
-            data_out    => data_out,
+            data_out    => data_out_s,
             data_in     => data_from_buffer
         );
 

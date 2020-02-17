@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Fri Feb 14 22:11:55 2020
+| Date         : Mon Feb 17 18:53:16 2020
 | Host         : eecs-gyaryu running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file bridge_top_control_sets_placed.rpt
 | Design       : bridge_top
@@ -41,9 +41,9 @@ Table of Contents
 +--------------------+-------+
 | Total control sets |    14 |
 | >= 0 to < 4        |     3 |
-| >= 4 to < 6        |     2 |
-| >= 6 to < 8        |     2 |
-| >= 8 to < 10       |     0 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               7 |            4 |
+| No           | No                    | No                     |               8 |            5 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              79 |           21 |
+| No           | Yes                   | No                     |              79 |           22 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             138 |           41 |
+| Yes          | Yes                   | No                     |             137 |           39 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -74,19 +74,19 @@ Table of Contents
 |  Clock Signal  |           Enable Signal          |       Set/Reset Signal       | Slice Load Count | Bel Load Count |
 +----------------+----------------------------------+------------------------------+------------------+----------------+
 |  clk_IBUF_BUFG | buff/rd_i0                       | rst_IBUF                     |                1 |              1 |
-|  clk_IBUF_BUFG | buff/ram_reg_0_15_0_0_i_1_n_0    |                              |                1 |              2 |
 |  clk_IBUF_BUFG | buff/ram_reg_0_15_0_0__0_i_1_n_0 |                              |                1 |              2 |
+|  clk_IBUF_BUFG | buff/ram_reg_0_15_0_0_i_1_n_0    |                              |                1 |              2 |
 |  clk_IBUF_BUFG |                                  | rst_IBUF                     |                3 |              5 |
+|  clk_IBUF_BUFG | buff/rd_i0                       | buff/wr_i0                   |                2 |              5 |
 |  clk_IBUF_BUFG | buff/E[0]                        | fake_rob/ticks[4]_i_1_n_0    |                1 |              5 |
-|  clk_IBUF_BUFG | buff/rd_i0                       | buff/wr_i0                   |                1 |              6 |
-|  clk_IBUF_BUFG |                                  |                              |                4 |              7 |
-|  clk_IBUF_BUFG |                                  | clear                        |                2 |             10 |
+|  clk_IBUF_BUFG |                                  |                              |                5 |              8 |
+|  clk_IBUF_BUFG |                                  | clear                        |                3 |             10 |
 |  clk_IBUF_BUFG | buff/sel                         | buff/tmp_h_period[0]_i_1_n_0 |                8 |             31 |
 |  clk_IBUF_BUFG | fake_rob/Q[0]                    | fake_rob/ticks[4]_i_1_n_0    |                8 |             31 |
 |  clk_IBUF_BUFG |                                  | buff/edge_rd_reg[1]_0        |                8 |             32 |
 |  clk_IBUF_BUFG |                                  | buff/tmp_h_period[0]_i_1_n_0 |                8 |             32 |
-|  clk_IBUF_BUFG | buff/h_period0                   | rst_IBUF                     |               14 |             32 |
-|  clk_IBUF_BUFG | buff/edge_rd_reg[0]_0[0]         | rst_IBUF                     |                8 |             32 |
+|  clk_IBUF_BUFG | buff/h_period0                   | rst_IBUF                     |               10 |             32 |
+|  clk_IBUF_BUFG | buff/edge_rd_reg[0]_0[0]         | rst_IBUF                     |                9 |             32 |
 +----------------+----------------------------------+------------------------------+------------------+----------------+
 
 

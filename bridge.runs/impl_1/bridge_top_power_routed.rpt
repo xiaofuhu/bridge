@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Fri Feb 14 22:12:18 2020
+| Date             : Mon Feb 17 18:53:39 2020
 | Host             : eecs-gyaryu running 64-bit major release  (build 9200)
 | Command          : report_power -file bridge_top_power_routed.rpt -pb bridge_top_power_summary_routed.pb -rpx bridge_top_power_routed.rpx
 | Design           : bridge_top
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |    <0.001 |      532 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |      144 |     10400 |            1.38 |
+| Slice Logic              |    <0.001 |      533 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |      145 |     10400 |            1.39 |
 |   CARRY4                 |    <0.001 |       60 |      8150 |            0.74 |
 |   Register               |    <0.001 |      224 |     20800 |            1.08 |
 |   LUT as Distributed RAM |    <0.001 |        4 |      9600 |            0.04 |
 |   Others                 |     0.000 |        7 |       --- |             --- |
-| Signals                  |    <0.001 |      332 |       --- |             --- |
-| I/O                      |    <0.001 |        7 |       106 |            6.60 |
+| Signals                  |    <0.001 |      334 |       --- |             --- |
+| I/O                      |    <0.001 |        8 |       106 |            7.55 |
 | Static Power             |     0.072 |          |           |                 |
 | Total                    |     0.072 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
